@@ -18,6 +18,12 @@ else:
 for i in range(10):
     print(i)
     if i > 6:
-        break
 else:
     print("Koniec")
+
+for a in range(1,101):
+
+    print(i)
+    if (i % 7 == 0 and i % 2 == 0):
+else:
+    print("liczba jest zla")

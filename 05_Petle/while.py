@@ -32,8 +32,7 @@ while n > 0:
         continue
 
     if n < 3:
-        break
-    print(f'{n} tak')
+       print(f'{n} tak')
 else:
     print('Koniec')
 
@@ -48,3 +47,18 @@ while n > 0:
 else:
     print('Koniec')
 
+
+for i
+if (i % 7 == 0 and i % 2 == 0):
+    print(f'{n} liczba dobra')
+else:
+    print(f'{n} liczba jest zla')
+
+
+
+for a in range(1,100):
+    b = a // 10
+    c = a % 10
+    i = b + c
+    if (i % 7 == 0 and i % 2 == 0):
+    print(f'{a} liczba jest dobra')
