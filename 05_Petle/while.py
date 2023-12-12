@@ -62,3 +62,9 @@ for a in range(1,100):
     i = b + c
     if (i % 7 == 0 and i % 2 == 0):
     print(f'{a} liczba jest dobra')
+
+n = input()
+suma = 0
+for c in str(n):
+    suma += int(c)
+print(suma)

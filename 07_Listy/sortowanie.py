@@ -14,3 +14,13 @@ str(lista)
 dluga_lista = [ str(i) for i in range(21)] + [ str(i) for i in range(-1, -21, -1)]
 str(dluga_lista)
 dluga_lista.sort(key=int)
+
+
+lista= []
+while True:
+    lst = input("Ala ma kota")
+    if (lst == ""):
+        break
+    lista.append(lst)
+lista.sort(key=str)
+print(lista)

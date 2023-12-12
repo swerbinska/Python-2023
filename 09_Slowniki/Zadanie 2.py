@@ -10,7 +10,7 @@ nazwy_11_19 = {0: "", 11: "jedenascie", 12: "dwanascie", 13: "trzynascie", 14: "
 slownik = {}
 n = int(input("wpisz liczbe"))
 napis = nazwy_setki[n-n%100]+" "
-n = n%100
+n%= 100
 if n in range(11,20):
     napis += nazwy_11_19[n]
 else:
