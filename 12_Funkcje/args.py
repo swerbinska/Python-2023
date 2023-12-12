@@ -15,6 +15,5 @@ def test_var_kwargs(farg, **kwargs):
     for key in kwargs:
         print ("another keyword arg: %s: %s" % (key, kwargs[key]))
     print (kwargs)
-
-
-test_var_kwargs(farg=1, myarg2="two", myarg3=3)
+    return farg, kwargs
+jedynka, slownik = test_var_kwargs(farg=1, myarg2="two", myarg3=3)

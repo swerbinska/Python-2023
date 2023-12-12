@@ -1,4 +1,4 @@
-# 13. Funkcje
+# 12. Funkcje
 
 - Deklarowanie funkcji
     - `def`

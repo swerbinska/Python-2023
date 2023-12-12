@@ -68,6 +68,6 @@ def choinka(poziom, separator=" ", znak="*"):
     print(S * (poziom - 1) + G)
     print(S * (poziom - 2) + G * 3)
 
-
 choinka(5)
-choinka(poziom=5, separator="$")
+choinka(poziom=5, separator="--", znak = "#")
+choinka(5, "-", "#")
