@@ -2,11 +2,11 @@ range(10)
 
 list(range(10))
 
-(x * x for x in range(10))
+(x * x for x in range(10)) # generator
 
 [x for x in range(10)]
 
-[x * x for x in range(10)]
+[x * x for x in range(10)] # lista
 
 [x for x in range(10) if x % 2 == 0]
 
