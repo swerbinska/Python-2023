@@ -1,5 +1,5 @@
 # Dla wczytanej liczby z wejścia z zakresu 1-999 wypisać jej postać słowną
-  - np. dla `73` wypisać `siedemdziesiąt trzy`
+# - np. dla `73` wypisać `siedemdziesiąt trzy`
 
 nazwy_jednosci = {0: "", 1: "jeden", 2: "dwa", 3: "trzy", 4: "cztery", 5: "pięć", 6: "sześć", 7: "siedem", 8: "osiem",
                   9: "dziewięć"}
@@ -18,7 +18,7 @@ else:
 
 print(napis)
 
-_________________________________________________
+# _________________________________________________
 # alternatywnerozwiązanie
 nazwy_jednosci = {0: "", 1: "jeden", 2: "dwa", 3: "trzy", 4: "cztery", 5: "pięć", 6: "sześć", 7: "siedem", 8: "osiem",
                   9: "dziewięć"}
@@ -42,3 +42,12 @@ else:
     lista_2.append(nazwy_dziesiatek[d])
     lista_2.append(nazwy_jednosci[j])
 print (" ".join(lista_2) )
+
+
+#nowy przykład
+nastka = 15
+if nastka in range(11,20):
+    print("nastka")
+
+if 11 < nastka  < 20
+    print("nastka")
