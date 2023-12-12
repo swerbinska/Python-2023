@@ -4,11 +4,11 @@ z = {1, 2, 3, 4, 1, 2}
 z
 z = {'a', 'b', 'c'}
 z
-'a' in z
+'a' in z #czy a należy do zbioru?
 'd' in z
-'d' not in z
+'d' not in z #czy d nie nalezy do zbioru?
 z2 = {'a', 'b', 'c', 'd'}
-z < z2
+z < z2 # czy z zabiera sie w z2?
 z3 = {'d', 'e'}
 z | z3
 z & z2
