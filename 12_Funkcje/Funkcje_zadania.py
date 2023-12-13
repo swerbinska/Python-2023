@@ -49,25 +49,40 @@ list(alphabet_range(end="M"))
 # zbudować funkcję `słownie` podającą słownie liczby całkowite do miliardów (do `999_999_999_999`)
 
 
-nazwy_jednosci = {0: "", 1: "jeden", 2: "dwa", 3: "trzy", 4: "cztery", 5: "pięć", 6: "sześć", 7: "siedem", 8: "osiem",
-                  9: "dziewięć"}
-nazwy_dziesiatki = {0: "", 10: "dziesiec", 20: "dwadziescia", 30: "trzydziesci", 40: "czterdziesci", 50: "pięćdziesiat", 60: "sześćdziesiat", 70: "siedemdziesiat", 80: "osiemdziesiat", 90: "dziewięćdziesiat"}
-nazwy_setki = {0: "", 100: "sto", 200: "dwiescie", 300: "trzysta", 400: "czterysta", 500: "pięćset", 600: "sześćset", 700: "siedemset", 800: "osiemset", 900: "dziewięćset"}
-nazwy_11_19 = {0: "", 11: "jedenascie", 12: "dwanascie", 13: "trzynascie", 14: "czternascie", 15: "piętnascie", 16: "szesnascie", 17: "siedemnascie",   18: "osiemnascie", 19: "dziewiętnascie"}
+def _slownie999(n):
+    nazwy_jednosci = {0: "", 1: "jeden", 2: "dwa", 3: "trzy", 4: "cztery", 5: "pięć", 6: "sześć", 7: "siedem",
+                      8: "osiem",
+                      9: "dziewięć"}
+    nazwy_dziesiatki = {0: "", 10: "dziesiec", 20: "dwadziescia", 30: "trzydziesci", 40: "czterdziesci",
+                        50: "pięćdziesiat", 60: "sześćdziesiat", 70: "siedemdziesiat", 80: "osiemdziesiat",
+                        90: "dziewięćdziesiat"}
+    nazwy_setki = {0: "", 100: "sto", 200: "dwiescie", 300: "trzysta", 400: "czterysta", 500: "pięćset",
+                   600: "sześćset", 700: "siedemset", 800: "osiemset", 900: "dziewięćset"}
+    nazwy_nastki = {0: "", 11: "jedenascie", 12: "dwanascie", 13: "trzynascie", 14: "czternascie", 15: "piętnascie",
+                    16: "szesnascie", 17: "siedemnascie", 18: "osiemnascie", 19: "dziewiętnascie"}
+    ret = []
 
-slownik = {}
-n = int(input("wpisz liczbe"))
-napis = nazwy_setki[n-n%100]+" "
-n%= 100
-if n in range(11,20):
-    napis += nazwy_11_19[n]
-else:
-    napis += nazwy_dziesiatki[n-n%10]+ " " + nazwy_jednosci[n%10]
+    jednosci = n % 10
+    dziesiatki = n % 100 - jednosci
+    setki = n - dziesiatki - jednosci
 
-print(napis)
+    if setki:
+        ret.append((setki, nazwy_setki[setki]))
 
-def slownie_do999(napis):
+    if dziesiatki == 10 and jednosci > 0:
+        nastki = 10 + jednosci
+        ret.append((nastki, nazwy_nastki[nastki]))
+    else:
+        if dziesiatki:
+            ret.append((dziesiatki, nazwy_dziesiatki[dziesiatki]))
+        if jednosci:
+            ret.append((jednosci, nazwy_jednosci[jednosci]))
 
+    return ret
 
-
-
+print(_slownie999(3))
+print(_slownie999(13))
+print(_slownie999(33))
+print(_slownie999(133))
+print(_slownie999(333))
+assert _slownie999(333) == [(300, 'trzysta'), (13, 'trzynascie')]
