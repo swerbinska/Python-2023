@@ -27,7 +27,7 @@ def _slownie999(n, jednostki=['metr', 'metry', 'metrow']):
         if jednosci:
             ret.append((jednosci, nazwy_jednosci[jednosci]))
 
-    if ret[-1][0] in [2, 3, 4]:
+    if ret[-1][0] in [2, 3, 4]:   #ten blok definiuje jakie mają być końcówki jednostek - to jest dostosowanie do polskiego slownika czyli tutaj w pierwszej linijce 2,3,4 to metry a 1 to metr a reszta to metrów
         ret.append((ret[-1][0], jednostki[1]))
     elif len(ret) == 1 and ret[-1][0] == 1:
         ret = [(ret[-1][0], jednostki[0])]
