@@ -1,4 +1,5 @@
-print("Importing " + __name__) # to bedzie wygodne gdy importujemy ten plik bo wtedy gdy odpalamy inny plik z ktorego importujemy te funkcje stad to mi sie pokarze importing i co zaimportowalam
+print("Importing " + __name__)
+# to bedzie wygodne gdy importujemy ten plik bo wtedy gdy odpalamy inny plik z ktorego importujemy te funkcje stad to mi sie pokarze importing i co zaimportowalam
 
 my_variable = 7
 
