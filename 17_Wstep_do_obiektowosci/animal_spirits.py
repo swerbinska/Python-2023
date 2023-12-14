@@ -112,7 +112,7 @@ swallow.get_speed()
 
 
 # NAJGORZEJ !!!
-class Swallow():
+class Swallow(): #tutaj definiujemy funkcje dla poszczegolnych jaskolek za wysoko - na poziomie podstawowym wiec nie ma co dziedziczyc
     def __init__(self):
         self.base_speed = 120
         self.load_factor = 15
