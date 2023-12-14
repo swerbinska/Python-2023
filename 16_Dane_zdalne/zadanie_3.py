@@ -4,7 +4,7 @@ import requests
 from pprint import pprint
 import sys
 
-inp = sys.argv[1] #w ten sposób wywołujemy w adresie url konkretne kraje ale trzeba wlasnie
+inp = sys.argv[1] #w ten sposób wywołujemy w adresie url konkretne kraje ale trzeba wlasnie - funkcja sys.argv słuzy do zbierania danych wejsciowych użytkownika z wiersza polecenia
 url = f"https://restcountries.com/v3.1/name/{inp}?fullText=true"
 response = requests.request(method="GET", url=url)
 

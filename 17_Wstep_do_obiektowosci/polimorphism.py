@@ -29,8 +29,8 @@ class Instrument:
         return "!&$%$^%*"
 
     def play(self):
-        print(f"{self.player}@{self.__class__.__name__}: {self.mysound()}")
-
+        print(f"{self.player}@{self.__class__.__name__}: {self.mysound()}") #tutaj ostatni kawalek kodu - to wywolanie szuka kodu jaki ma sobie wywolac, obiekty maja to co ma rodzic plus dodatkowo to co maja same
+#ta funkcja mysound tu jest zmiennokształtna czyli polimorficzna. caly szkopul w tej kropce self.mysound() - to wyszukiwanie funkcji i metod czyni programowanie obiektowe czyms innym niz bazowanie na modulach i pakietach
     def __init__(self, player):
         self.player = player
 
@@ -72,8 +72,8 @@ instrument.play()
 from abc import ABC, abstractmethod
 
 
-class Instrument(ABC):
-    @abstractmethod
+class Instrument(ABC): #tu dajemy przodka dla instrumentów - przodkiem jest ABC
+    @abstractmethod #abstract base class to jest ABC to jest abstrakcyjna metoda ktora nas zabezpiecza przed wstapieniem linijek 69-70 - to tu definiuje ze nie mozna zrobi takiego dzwieku
     def mysound(self):
         return "!&$%$^%*"
 
