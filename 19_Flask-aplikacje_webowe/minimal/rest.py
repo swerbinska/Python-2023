@@ -14,3 +14,5 @@ def summary():
             'wins': [11, 8, 10, 15, 11, 6, 10, 4],
             'losses': [5, 8, 6, 1, 5, 10, 6, 12]}
     return jsonify(data)
+
+#tu mamy własny serwer restowy; po odpaleniu musimy dodac data :http://127.0.0.1:5000/data

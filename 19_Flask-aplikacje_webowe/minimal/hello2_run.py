@@ -20,5 +20,5 @@ def another():
     return "<p>Hello, World from another!</p>"
 
 
-if __name__ == '__main__':
+if __name__ == '__main__': #ta funkcja daje nam odpalenie run w terminalu wiec mozemy odpalic przez python ...
       app.run(host='127.0.0.1', port=8000)
