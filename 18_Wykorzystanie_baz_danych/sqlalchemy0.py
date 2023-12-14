@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 #powinnismy tez tu uzyc funkcji with
 Base = automap_base()
 db_url = "postgresql+psycopg2://my_user:secret@127.0.0.1/my_database"
-engine = create_engine(db_url) #teraz tworzymy engine = to co connection - tożsame z with psycopg2.connect(connect_string) as connection: z postgres.py linia 111
+engine = create_engine(db_url) #teraz tworzymy engine = to co connection - tożsame z with psycopg2.connect(connect_string) as connection: z postgres.py linia 11; engine zarządza pulą połączen
 
 # reflect the tables
 Base.prepare(engine, reflect=True) #kazemy sie mechanizmom pythona przejrzec z baza danych i sprawdzic co jest; pojawiaja sie klasy jakie sa w bazie danych
