@@ -8,6 +8,6 @@ response = requests.request(method="GET", url=url) #tu podajemy jaką metodą zw
 pprint(response.json()) #tu mi sie zmieni na strukturę danych jak wywolamy response, pprint zwroci - jako slownik {}
 
 print()
-print(25*"*")
+print(25*"*") #to zeby wyswietlily sie gwiazdki jako dekoracja, oddzielenie
 print()
 print(response.json()['value']) #wyciągnieta ze struktury danych po kluczu wartosc

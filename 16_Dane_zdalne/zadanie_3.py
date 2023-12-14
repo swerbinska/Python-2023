@@ -11,7 +11,7 @@ response = requests.request(method="GET", url=url)
 data = response.json()[0]
 pprint(data.keys())
 
-print(f'Ludnosc:\t\t{data["population"]}')
+print(f'Ludnosc:\t\t{data["population"]}') #wywołanie konkretnych typów danych
 print(f'Powierzchnia:\t\t{data["area"]}')
 print(f'Waluta:\t\t\t{list(data["currencies"].keys())[0]}')
 print(f'Stolica:\t\t{data["capital"][0]}')
