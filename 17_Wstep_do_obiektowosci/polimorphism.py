@@ -1,4 +1,4 @@
-class Instrument:
+class Instrument: #mamy klasę instrumentów i bedziemy budowac orkiestrę, polimorfizm to pozwala zrobić - to mechanizm dziedziczenia
     name = "Instrument"
 
     def mysound(self):
@@ -9,7 +9,7 @@ class Instrument:
 
 
 # Dziedziczenie
-class Drums(Instrument):
+class Drums(Instrument): #tu oznaczamy ze bebny sa w klasie instrumenty; jak tu to okreslamy tak to oznacza ze beben ma dokladnie te same funkcje co instrument dlatego mozemy uzyc fukcji play
     name = "Drums"
 
     def mysound(self):
@@ -23,7 +23,7 @@ drum.__class__
 
 drum.__class__.__name__
 
-
+#_____________________________________________________________
 class Instrument:
     def mysound(self):
         return "!&$%$^%*"
@@ -57,10 +57,11 @@ guitar.play()
 
 # Polimorfizm
 
-rockband = [Guitar('Bill'), Guitar('Dan'), Guitar('Jack'), Drums('Bob')]
+rockband = [Guitar('Bill'), Guitar('Dan'), Guitar('Jack'), Drums('Bob')] #kapela rockowa, wrzucamy na listę instrumenty i ludzi)
 
-for instrument in rockband:
-    instrument.play()
+for instrument in rockband: #idziemy po liscie istrumentów i dla kazdego wywolujemy play i wewnatrz tego playa kazdy wywoluje mysound
+    instrument.play() #dobierane sa takie funkcje jakie sa potrzebne w kontekscie danego obiektu
+
 
 # Klasy abstrakcyjne
 
