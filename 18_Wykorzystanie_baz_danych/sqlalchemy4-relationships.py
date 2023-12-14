@@ -36,7 +36,7 @@ class User(Base):
     first_name = sa.Column('first_name', sa.Text)
     last_name = sa.Column('last_name', sa.Text)
 
-    products = relationship("Product",
+    products = relationship("Product", #tu deklarujemy relacje miedzy produktem a uzytkownikiem czyli uzytkownik ma miec liste z produktami  i ludzmi ktorzy go kupili
                             secondary='order',
                             uselist=True,
                             backref='users',

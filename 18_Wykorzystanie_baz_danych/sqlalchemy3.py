@@ -44,7 +44,7 @@ session.add(OrderItem(product_id=1, user_id=13, qty=3))
 session.add(OrderItem(product_id=1, user_id=13, qty=20))
 session.commit()
 
-query = (
+query = ( #przykład złożonego zapytania
     session.query(
     (User.first_name + ' ' + User.last_name).label('seller'),
     sa.func.count(OrderItem.id).label('unique_items'),

@@ -5,7 +5,7 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
-engine = sa.create_engine('sqlite:///:memory:') #
+engine = sa.create_engine('sqlite:///:memory:') #przechodzimy z postgresa na sqlite - jest to baza ktora tez jest podobna do sqla; przewaga nad postgres - jest wbudowana w pythona wiec nie trzeba dodatkowo instalowac postgressql
 Base = declarative_base()
 session = sa.orm.sessionmaker(bind=engine)()
 
