@@ -17,17 +17,17 @@ OrdersItem = Base.classes.orders_item
 session = Session(engine)
 
 result = session.query(Orders, OrdersItem).filter(Orders.id == OrdersItem.orders_id).all()
-for row in result:
-    print(row.__dict__)
 
 for row in result:
-    print('\t|\t'.join( (str(row.id),  str(row.name) , str(row.price))))
+    print(row[0], row[1])
 
 result = session.query(Orders).all()
+
 for row in result:
     print(row.__dict__)
 
-result = (session
-          .query(Orders, FoodItem).all())
+result = (session.
+          query(Orders, FoodItem).all())
+
 for row in result:
-    print(row.__dict__)
+    print(row[1].__dict__)

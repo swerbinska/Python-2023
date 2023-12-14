@@ -5,7 +5,7 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
-engine = sa.create_engine('sqlite:///:memory:')
+engine = sa.create_engine('sqlite:///:memory:') #
 Base = declarative_base()
 session = sa.orm.sessionmaker(bind=engine)()
 
