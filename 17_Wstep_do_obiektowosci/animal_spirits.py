@@ -2,8 +2,9 @@
 # Monkey patching #
 ###################
 
+
 class A():
-    def f(self):
+    def f(self): #klasa A która ma funkcję f
         return 1
 
 
@@ -15,7 +16,7 @@ def f(x):
     return -1
 
 
-A.f = f
+A.f = f #podmiana w klasie i wtedy wszystkie obiekty zostaną podmienione w klasie nie tylko jeden obiekt
 
 a.f()
 
@@ -23,9 +24,9 @@ a.f()
 ###################################################
 
 ###############
-# Duck Typing #
+# Duck Typing # funkcja wywoluje wszystko co ma takie same funkcje w ponizszym przykladzie funkcja play oznacza ze python wywoluje wszystko co ma play
 ###############
-
+# w tej funkcji nie korzystamy z polimorfizmu opartego o dziedziczenie tylko z polimorfizmu obiektów ktore maja ta sama funkcję
 
 class Drums:
     def play(self):
@@ -36,8 +37,11 @@ class Guitar:
     def play(self):
         return "Dling Dling"
 
+class Kaczka:
+    def play(self):
+        return "kwa, kwa"
 
-orchestra = [Guitar(), Guitar(), Drums()]
+orchestra = [Guitar(), Guitar(), Drums(), Kaczka()]
 for instrument in orchestra:
     print(instrument.play())
 
@@ -45,18 +49,18 @@ for instrument in orchestra:
 ###################################################
 
 ################################
-# We don't need no stinkin' IF #
+# We don't need no stinkin' IF # aby unikac funkcji if mozemy korzystac z polimorfizmu
 ################################
 
 # Źle !
-class Swallow():
+class Swallow(): #tworzymy klase jaskółka
     def __init__(self, s_type):
         self.type = s_type
         self.base_speed = 120
         self.load_factor = 15
         self.number_of_coconuts = 3
 
-    def get_speed(self):
+    def get_speed(self): #tu definiujemy jakie są typy jaskółki europejska, afrykańska, norweska
         if self.type == 'European':
             return self.base_speed
         elif self.type == 'African':
@@ -67,7 +71,7 @@ class Swallow():
             return 0
 
 
-swallow = Swallow('African')
+swallow = Swallow('African') #tu pytamy o prędkosc jaskółki
 swallow.get_speed()
 
 # DOBRZE !
@@ -75,23 +79,25 @@ swallow.get_speed()
 from abc import ABC, abstractmethod
 
 
-class Swallow(ABC):
-    def __init__(self):
-        self.base_speed = 120
+class Swallow(ABC): #stworzona abstrakcyjna jaskółka której dane beda dziedziczone
+    def __init__(self, base_speed=120):
+        self.base_speed = base_speed
         self.load_factor = 15
         self.number_of_coconuts = 3
 
-    @abstractmethod
+    @abstractmethod #ta metoda to jest klucz bo ta funkcja definiuje sposoby liczenia predkosci dlatego dla niej jest polimorfizm
     def get_speed(self):
-        pass
+        pass #oznacza ze metoda jest pusta bo tu mamy abstrakcyjna metode wiec cos musimy dac, mogloby dac n = 0
 
 
 class EuropeanSwallow(Swallow):
+    base_speed = 120
     def get_speed(self):
         return self.base_speed
 
 
 class AfricanSwallow(Swallow):
+    base_speed = 200
     def get_speed(self):
         return self.base_speed - self.load_factor * self.number_of_coconuts
 

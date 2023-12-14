@@ -1,3 +1,4 @@
+#to sa funkcje wbudowane w pythona, one ulatwiaja troche zycie
 # object.__lt__(karta1, other)
 #
 # object.__le__(karta1, other)
@@ -23,15 +24,16 @@
 #
 # object.__mul__
 
+#funkcje dodaktkowe pozwlaają na po
 class IntValue:
     def __init__(self, value):
         self.value = value
 
-    # repr() : evaluatable string representation of an object (can "eval()" it, meaning it is a string representation that evaluates to a Python object)
+    # repr() : evaluatable string representation of an object (can "eval()" it, meaning it is a string representation that evaluates to a Python object) - ta funkcja wypisze cos ladnego
     def __repr__(self):
         return f"IntValue({self.value})"
 
-    def __gt__(self, other):
+    def __gt__(self, other): #funkcja greater than, czyli dostajemy zwrotke czy pierwszy obiekt jest wiekszy od drugiego
         return self.value > other.value
 
 
@@ -60,12 +62,12 @@ class IntValue:
 a = IntValue(3)
 b = IntValue(5)
 
-a + b
+a + b #zwróci intvalue(8) bo je obie doda
 
 a = IntValue(3)
 b = 5
 
-a + b # error
+a + b # error bo są rózne typy zmiennych
 
 
 class IntValue:
@@ -120,7 +122,7 @@ a = 3
 b = IntValue(5)
 
 a + b
-#############################################################
+##############################################################
 import math
 class Point:
     def __init__(self, x, y):
@@ -153,6 +155,9 @@ suits = ('clubs', 'diamonds', 'hearts', 'spades')
 
 
 class Card(object):
+    values = ('2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A')
+    suits = ('clubs', 'diamonds', 'hearts', 'spades')
+
     def __init__(self, value='A', suit='spade'):
         self.value, self.suit = value, suit
         print(f"In init; value is {value}; suit is {suit}")
@@ -160,16 +165,23 @@ class Card(object):
     def __repr__(self):
         return "Card('%s','%s')" % (self.value, self.suit)
 
+    def __gt__(self, other):
+        if self.suits.index(self.suit)> self.suits.index(other.suit):
+            return True
+        if self.suits.index(self.suit)< self.suits.index(other.suit):
+            return False
 
+        return self.values.index(self.value) > self.values.index(other.value)
 
 krol_karo = Card('K', 'diamonds')
 as_karo = Card('A', 'diamonds')
 dycha_karo = Card('10', 'diamonds')
 karty_w_rece = [ as_karo, krol_karo, dycha_karo]
 
-karty_w_rece
+print(karty_w_rece)
 
 karty_w_rece.sort()
+print(karty_w_rece)
 
 def moc_karty(karta):
     return len(values)*suits.index(karta.suit) + values.index(karta.value)
