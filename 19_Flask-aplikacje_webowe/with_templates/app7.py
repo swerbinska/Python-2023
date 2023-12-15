@@ -14,7 +14,7 @@ def hello():
 
 @app.route('/add', methods=["POST"])
 def add():
-    received = request.form  # a multidict containing POST data
+    received = request.form  # a multidict containing POST data juz tu nie mamy arg tylko form bo jest inna
     print(received)
     print(received['key'])
     print(received['val'])

@@ -35,6 +35,12 @@
             border: 2px solid #4CAF50;
         }
 
+        .button2 {
+            background-color: white;
+            color: black;
+            border: 2px solid #4CAF50;
+        }
+
       ul {
   list-style: none; /* Remove default bullets */
 }
@@ -51,6 +57,11 @@ ul li::before {
             background-color: #4CAF50;
             color: white;
         }
+        .button2:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
 
     </style>
 </head>
@@ -63,10 +74,21 @@ ul li::before {
 {% endif %}
 
 <form action="/add">
-    <label for="name">Imię użytkownika:</label>
-    <input type="text" id="name" name="name" value="Przykładowe imię"><br>
+    <label for="name">Uzytkownik:</label>
+    <input type="text" id="name" name="name" value="Wpisz uzytkownik"><br>
     <input class="button button1" type="submit" value="Dodaj !">
 </form>
+
+<form action="/remove" >
+<label for="values">Dodaj użytkownik:</label>
+<select name="values" id="values">
+    {% for item in data  %}
+   <option value="{{ item.username }}">{{ item.username }}</option>
+{% endfor %}
+</select>
+    <input class="button button2" type="submit" value="Usun">
+</form>
+
 <ul>
     {% for item in data %}
     <li>{{ item }}</li>
