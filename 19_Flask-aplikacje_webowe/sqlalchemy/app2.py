@@ -23,8 +23,18 @@ class Tag(db.Model):
         return '<Tag %r>' % self.tagname
 
 
+class Note(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    titlename = db.Column(db.String(80), nullable=False)
+    body = db.Column(db.String(80), nullable=False)
+
+
 def get_tags(session):
     return session.query(Tag).all()
+
+
+def get_note(session):
+    return session.query(Note).all()
 
 
 def create_tag(name, session):
@@ -39,18 +49,39 @@ def create_tag(name, session):
     else:
         return True
 
+
+def create_note(title, body, session):
+    try:
+        note = Note(title=title, body=body)
+        session.add(note)
+        session.commit()
+    except sqlalchemy.exc.IntegrityError as e:
+        print(e)
+        session.rollback()
+        return False
+    else:
+        return True
+
+
 def remove_tag(name, session):
     tag = session.query(Tag).filter_by(tagname=name).one()
     session.delete(tag)
     session.commit()
 
+def remove_note(id, session):
+    note = session.query(Note).filter_by(id=id).one()
+    session.delete(note)
+    session.commit()
+
+
 @app.route('/')
 def hello():
     return render_template('form2.html', data=get_tags(db.session),
+                           data2=get_notes(db.session),
                            tytul="Notatki", no_error=True)
 
 
-@app.route('/add')
+@app.route('/add_tag')
 def add():
     args = request.args
     no_error = create_tag(args["name"], db.session)
@@ -60,11 +91,25 @@ def add():
         tytul = "Taki tag już istnieje"
 
     return render_template('form2.html', data=get_tags(db.session),
+                           data2=get_note(db.session),
                            no_error=no_error,
                            tytul=tytul)
 
+@app.route('/add_note')
+def add():
+    args = request.args
+    no_error = create_tag(args["title"],args["body"], db.session)
+    if no_error:
+        tytul = "Dodano notatka"
+    else:
+        tytul = "Taka notatka już istnieje"
 
-@app.route('/remove')
+    return render_template('form2.html', data=get_tags(db.session),
+                           data2=get_note(db.session),
+                           no_error=no_error,
+                           tytul=tytul)
+
+@app.route('/remove_tag')
 def remove():
     args = request.args
     remove_tag(args["values"], db.session)
@@ -72,12 +117,6 @@ def remove():
     if no_error:
         tytul = "Usunieto tag"
     return render_template('form2.html', data=get_tags(db.session),
+                           data2=get_note(db.session),
                            no_error=no_error,
                            tytul=tytul)
-
-class Note(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    notename = db.Column(db.String(80), unique=True, nullable=False
-
-    def __repr__(self):
-        return '<Tag %r>' % self.tagname

@@ -97,5 +97,12 @@ ul li::before {
     {% endfor %}
 </ul>
 
+<ul>
+    {% for item in data2 %}
+    <li>{{ item }}</li>
+    {% else %}
+    no items
+    {% endfor %}
+</ul>
 </body>
 </html>
